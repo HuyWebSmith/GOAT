@@ -1,0 +1,43 @@
+<h2>Product List</h2>
+
+<button onclick="openPopup()">Add Product</button>
+
+<table border="1">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Price</th>
+</tr>
+
+<% products.forEach(p => { %>
+<tr>
+<td><%= p.id %></td>
+<td><%= p.name %></td>
+<td><%= p.price %></td>
+</tr>
+<% }) %>
+
+</table>
+
+<div id="popup" style="display:none">
+
+<form action="/products/add" method="POST">
+
+<input type="text" name="name" placeholder="Product name">
+<br><br>
+
+<input type="number" name="price" placeholder="Price">
+
+<br><br>
+
+<button type="submit">Save</button>
+
+</form>
+
+</div>
+
+<script>
+function openPopup(){
+document.getElementById("popup").style.display="block";
+}
+</script>
